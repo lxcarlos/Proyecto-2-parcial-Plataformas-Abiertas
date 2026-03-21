@@ -5,21 +5,14 @@ const lista = document.getElementById("lista");
 
 function leerPublicaciones() {
     const guardadas = localStorage.getItem(STORAGE_POSTS);
-
-    if (guardadas) {
-        return JSON.parse(guardadas);
-    }
-
-    return [];
+    return guardadas ? JSON.parse(guardadas) : [];
 }
-//Codigo para guardar publicaciones de ejemplo, se puede eliminar despues
+
 function renderizarPublicaciones(publicaciones) {
     if (!lista) return;
 
     lista.innerHTML = "";
 
-    if (listaPublicaciones.length === 0) {
-        lista.innerHTML = "<p class='no-resultados'>No se encontraron publicaciones.</p>";
     if (publicaciones.length === 0) {
         const mensaje = document.createElement("div");
         mensaje.classList.add("no-resultados");
@@ -30,7 +23,6 @@ function renderizarPublicaciones(publicaciones) {
 
     publicaciones.forEach((publicacion) => {
         const card = document.createElement("div");
-        card.classList.add("publicacion"); // usamos CSS en lugar de style
         card.classList.add("publicacion");
 
         if (publicacion.destacado) {
@@ -56,11 +48,6 @@ function renderizarPublicaciones(publicaciones) {
 }
 
 function filtrar() {
-    const textoBusqueda = document
-        .getElementById("buscar")
-        .value
-        .trim()
-        .toLowerCase();
     const textoBusqueda = inputBuscar.value.trim().toLowerCase();
     const publicaciones = leerPublicaciones();
 
