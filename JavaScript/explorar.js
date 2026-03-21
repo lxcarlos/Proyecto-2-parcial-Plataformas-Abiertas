@@ -1,61 +1,60 @@
-const publicaciones = [
-    {
-        id: 1,
-        autor: "Carlos",
-        texto: "Agregando estilos al proyecto."
-    },
-    {
-        id: 2,
-        autor: "Moisés",
-        texto: "Trabajando en la parte de JavaScript."
-    },
-    {
-        id: 3,
-        autor: "Yerik",
-        texto: "Subiendo cambios al perfil."
-    },
-    {
-        id: 4,
-        autor: "Equipo",
-        texto: "Explorando publicaciones del proyecto."
-    }
-];
+const STORAGE_POSTS = "publicacionesPerfil";
 
-function renderizarPublicaciones(listaPublicaciones) {
-    const lista = document.getElementById("lista");
+const inputBuscar = document.getElementById("buscar");
+const lista = document.getElementById("lista");
+
+function leerPublicaciones() {
+    const guardadas = localStorage.getItem(STORAGE_POSTS);
+
+    if (guardadas) {
+        return JSON.parse(guardadas);
+    }
+
+    return [];
+}
+//Codigo para guardar publicaciones de ejemplo, se puede eliminar despues
+function renderizarPublicaciones(publicaciones) {
+    if (!lista) return;
+
     lista.innerHTML = "";
 
-    if (listaPublicaciones.length === 0) {
-        lista.innerHTML = "<p>No se encontraron publicaciones.</p>";
+    if (publicaciones.length === 0) {
+        const mensaje = document.createElement("div");
+        mensaje.classList.add("no-resultados");
+        mensaje.textContent = "No se encontraron publicaciones.";
+        lista.appendChild(mensaje);
         return;
     }
 
-    listaPublicaciones.forEach((publicacion) => {
+    publicaciones.forEach((publicacion) => {
         const card = document.createElement("div");
+        card.classList.add("publicacion");
 
-        card.style.backgroundColor = "#1e1e30";
-        card.style.border = "1px solid #2a2a4a";
-        card.style.borderRadius = "10px";
-        card.style.padding = "16px";
-        card.style.marginTop = "12px";
-        card.style.color = "#e8e8f0";
+        if (publicacion.destacado) {
+            card.style.borderLeft = "4px solid gold";
+        }
 
         const autor = document.createElement("h3");
         autor.textContent = publicacion.autor;
 
         const texto = document.createElement("p");
         texto.textContent = publicacion.texto;
-        texto.style.marginTop = "8px";
+
+        const fecha = document.createElement("small");
+        fecha.textContent = publicacion.fecha || "Sin fecha";
+        fecha.classList.add("fecha");
 
         card.appendChild(autor);
         card.appendChild(texto);
+        card.appendChild(fecha);
 
         lista.appendChild(card);
     });
 }
 
 function filtrar() {
-    const textoBusqueda = document.getElementById("buscar").value.trim().toLowerCase();
+    const textoBusqueda = inputBuscar.value.trim().toLowerCase();
+    const publicaciones = leerPublicaciones();
 
     const filtradas = publicaciones.filter((publicacion) => {
         return (
@@ -68,5 +67,8 @@ function filtrar() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const publicaciones = leerPublicaciones();
     renderizarPublicaciones(publicaciones);
 });
+
+window.filtrar = filtrar;
