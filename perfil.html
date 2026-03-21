@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil | Mini Red Social</title>
     <link rel="stylesheet" href="css/estilos_perfil.css">
 </head>
 <body class="modo-claro">
 
-<header>
-    <h2>Perfil</h2>
+<header class="header">
+    <h2>Mini Red Social</h2>
 </header>
 
-<div class="container">
+<nav class="nav">
+    <a href="perfil.html">Perfil</a>
+    <a href="explorar.html">Explorar</a>
+</nav>
+
+<main class="container">
     <h3 id="bienvenida"></h3>
-    <button id="btn-tema" type="button">Modo oscuro</button>
 
-    <h4>Crear publicación</h4>
-    <input type="text" id="postInput" placeholder="Escribe algo...">
-    <button onclick="agregarPost()">Publicar</button>
+    <button id="btn-tema">Modo oscuro</button>
 
-    <div id="posts"></div>
+    <section class="crear-post">
+        <h4>Crear publicación</h4>
+        <input type="text" id="postInput" placeholder="¿Qué estás pensando?">
+        <button onclick="agregarPost()">Publicar</button>
+    </section>
 
-    <br>
-    <a href="explorar.html">Ir a explorar</a>
-</div>
+    <section id="posts"></section>
+</main>
 
 <script src="JavaScript/perfil.js"></script>
 </body>

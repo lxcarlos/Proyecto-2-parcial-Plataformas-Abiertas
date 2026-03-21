@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar</title>
+    <title>Explorar | Mini Red Social</title>
     <link rel="stylesheet" href="css/explorar.css">
 </head>
 <body>
 
-    <header>
-        <h2>Explorar publicaciones</h2>
-    </header>
+<header class="header">
+    <h2>Mini Red Social</h2>
+</header>
 
-    <div class="container">
-        <input type="text" id="buscar" placeholder="Buscar..." onkeyup="filtrar()">
+<nav class="nav">
+    <a href="perfil.html">Perfil</a>
+    <a href="explorar.html">Explorar</a>
+</nav>
 
-        <div id="lista"></div>
-        <br>
-        <a href="perfil.html">Volver</a>
-    </div>
+<main class="container">
+    <h3>Explorar publicaciones</h3>
 
-    <script src="JavaScript/explorar.js"></script>
+    <input type="text" id="buscar" placeholder="Buscar publicaciones..." onkeyup="filtrar()">
+
+    <div id="lista"></div>
+</main>
+
+<script src="JavaScript/explorar.js"></script>
 </body>
 </html>
