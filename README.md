@@ -41,4 +41,4 @@ Proyecto_2do_Parcial_LOGIN/
 - Yerik Ian Lugo
 - Zaid Serna
 - Christian Sanpedro
--
+- Moisés Medina Sánchez
