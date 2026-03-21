@@ -5,17 +5,23 @@
     box-sizing: border-box;
 }
 
-/* mismo fondo azul muy oscuro que el login para que las paginas se vean del mismo sitio */
+/* estilos base */
 body {
-    background-color: #0d0d14;
-    color: #e8e8f0;
     font-family: Georgia, serif;
     font-size: 16px;
     line-height: 1.6;
 }
 
+/* ================================
+   MODO OSCURO
+================================ */
+body.modo-oscuro {
+    background-color: #0d0d14;
+    color: #e8e8f0;
+}
+
 /* header consistente con el login */
-header {
+body.modo-oscuro header {
     background-color: #13131f;
     padding: 22px 28px;
     text-align: center;
@@ -23,7 +29,7 @@ header {
 }
 
 /* titulo con bastante espaciado entre letras */
-header h2 {
+body.modo-oscuro header h2 {
     font-size: 18px;
     font-weight: normal;
     letter-spacing: 6px;
@@ -32,7 +38,7 @@ header h2 {
 }
 
 /* contenedor principal */
-.container {
+body.modo-oscuro .container {
     width: 90%;
     max-width: 520px;
     margin: 60px auto;
@@ -40,16 +46,11 @@ header h2 {
     padding: 52px 44px;
     border: 1px solid #2a2a4a;
     border-radius: 16px;
-}
-
-/* profe esto no nos lo enseño pero box-shadow le pone varias sombras,
-   la grande crea profundidad y la pequena hace un borde brilloso muy sutil */
-.container {
     box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.7), 0px 0px 0px 1px rgba(100, 100, 200, 0.1);
 }
 
 /* el mensaje de bienvenida con el nombre del usuario */
-#bienvenida {
+body.modo-oscuro #bienvenida {
     font-size: 24px;
     font-weight: normal;
     color: #c8c8e8;
@@ -59,8 +60,8 @@ header h2 {
     border-bottom: 1px solid #2a2a4a;
 }
 
-/* botones — el de modo oscuro y el de publicar */
-.container button {
+/* botones */
+body.modo-oscuro .container button {
     display: inline-block;
     padding: 10px 22px;
     background-color: #4a4a8a;
@@ -77,12 +78,12 @@ header h2 {
 }
 
 /* cuando pasas el mouse el boton se aclara */
-.container button:hover {
+body.modo-oscuro .container button:hover {
     background-color: #6060aa;
 }
 
-/* el subtitulo de crear publicacion en mayusculas y muy espaciado */
-h4 {
+/* el subtitulo de crear publicacion */
+body.modo-oscuro h4 {
     font-size: 11px;
     font-weight: normal;
     color: #6060a0;
@@ -92,7 +93,7 @@ h4 {
 }
 
 /* el input donde escribes la publicacion */
-.container input[type="text"] {
+body.modo-oscuro .container input[type="text"] {
     display: block;
     width: 100%;
     padding: 14px 18px;
@@ -105,23 +106,22 @@ h4 {
     font-family: Georgia, serif;
 }
 
-/* cuando haces clic en el input el borde se ilumina con morado suave */
-.container input[type="text"]:focus {
+/* focus */
+body.modo-oscuro .container input[type="text"]:focus {
     outline: none;
     border-color: #8888cc;
 }
 
 /* columna de publicaciones */
-#posts {
+body.modo-oscuro #posts {
     display: flex;
     flex-direction: column;
     gap: 14px;
     margin-top: 28px;
 }
 
-/* profe esto no nos lo enseño pero con esto cada div dentro de posts
-   se convierte en una tarjetita con borde izquierdo de color para que destaque */
-#posts div {
+/* tarjetas dentro de posts */
+body.modo-oscuro #posts div {
     background-color: #1e1e30;
     border: 1px solid #2a2a4a;
     border-left: 3px solid #6060aa;
@@ -133,7 +133,7 @@ h4 {
 }
 
 /* link de ir a explorar */
-a {
+body.modo-oscuro a {
     display: inline-block;
     color: #6060a0;
     text-decoration: none;
@@ -142,97 +142,152 @@ a {
     letter-spacing: 1px;
 }
 
-/* cuando pasas el mouse el link se ilumina */
-a:hover {
+/* hover del link */
+body.modo-oscuro a:hover {
     color: #c8c8e8;
 }
 
-/* en celular todo se ajusta */
+/* ================================
+   MODO CLARO
+================================ */
+body.modo-claro {
+    background-color: #f0f0f8;
+    color: #1a1a2e;
+}
+
+body.modo-claro header {
+    background-color: #e0e0f0;
+    padding: 22px 28px;
+    text-align: center;
+    border-bottom: 2px solid #b0b0d0;
+}
+
+body.modo-claro header h2 {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    color: #3a3a6a;
+    text-transform: uppercase;
+}
+
+body.modo-claro .container {
+    width: 90%;
+    max-width: 520px;
+    margin: 60px auto;
+    background-color: #ffffff;
+    padding: 52px 44px;
+    border: 1px solid #c0c0e0;
+    border-radius: 16px;
+    box-shadow: 0px 20px 60px rgba(100, 100, 200, 0.15), 0px 0px 0px 1px rgba(100, 100, 200, 0.2);
+}
+
+body.modo-claro #bienvenida {
+    font-size: 24px;
+    font-weight: normal;
+    color: #2a2a4a;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #c0c0e0;
+}
+
+body.modo-claro .container button {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #3a3a7a;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 28px;
+    margin-right: 8px;
+}
+
+body.modo-claro .container button:hover {
+    background-color: #5050a0;
+}
+
+body.modo-claro h4 {
+    font-size: 11px;
+    font-weight: normal;
+    color: #8888bb;
+    margin-bottom: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+body.modo-claro .container input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    background-color: #f0f0fa;
+    color: #1a1a2e;
+    border: 1px solid #b0b0d0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Georgia, serif;
+}
+
+body.modo-claro .container input[type="text"]:focus {
+    outline: none;
+    border-color: #4a4a8a;
+}
+
+body.modo-claro #posts {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+body.modo-claro #posts div {
+    background-color: #eeeef8;
+    border: 1px solid #c0c0e0;
+    border-left: 3px solid #4a4a8a;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #2a2a4a;
+    box-shadow: 0px 4px 16px rgba(100, 100, 200, 0.1);
+}
+
+body.modo-claro a {
+    display: inline-block;
+    color: #7070b0;
+    text-decoration: none;
+    margin-top: 28px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+body.modo-claro a:hover {
+    color: #2a2a4a;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
 @media (max-width: 600px) {
-    .container {
+    body.modo-oscuro .container,
+    body.modo-claro .container {
         width: 95%;
         padding: 32px 22px;
         margin: 30px auto;
     }
 
-    header h2 {
+    body.modo-oscuro header h2,
+    body.modo-claro header h2 {
         font-size: 14px;
         letter-spacing: 4px;
     }
 
-    #bienvenida {
+    body.modo-oscuro #bienvenida,
+    body.modo-claro #bienvenida {
         font-size: 20px;
     }
-}
-
-
-/********************************
- modo claro
- --------------------------------
- el js agrega la clase "light" al body cuando el usuario
- presiona toggleDark, aqui todo cambia pero mantiene el estilo
-********************************/
-
-body.light {
-    background-color: #f0f0f8;
-    color: #1a1a2e;
-}
-
-body.light header {
-    background-color: #e0e0f0;
-    border-bottom: 2px solid #b0b0d0;
-}
-
-body.light header h2 {
-    color: #3a3a6a;
-}
-
-body.light .container {
-    background-color: #ffffff;
-    border-color: #c0c0e0;
-    box-shadow: 0px 20px 60px rgba(100, 100, 200, 0.15), 0px 0px 0px 1px rgba(100, 100, 200, 0.2);
-}
-
-body.light #bienvenida {
-    color: #2a2a4a;
-    border-bottom: 1px solid #c0c0e0;
-}
-
-body.light .container input[type="text"] {
-    background-color: #f0f0fa;
-    color: #1a1a2e;
-    border-color: #b0b0d0;
-}
-
-body.light .container input[type="text"]:focus {
-    border-color: #4a4a8a;
-}
-
-body.light .container button {
-    background-color: #3a3a7a;
-    color: #ffffff;
-}
-
-body.light .container button:hover {
-    background-color: #5050a0;
-}
-
-body.light h4 {
-    color: #8888bb;
-}
-
-body.light #posts div {
-    background-color: #eeeef8;
-    border-color: #c0c0e0;
-    border-left: 3px solid #4a4a8a;
-    color: #2a2a4a;
-    box-shadow: 0px 4px 16px rgba(100, 100, 200, 0.1);
-}
-
-body.light a {
-    color: #7070b0;
-}
-
-body.light a:hover {
-    color: #2a2a4a;
 }
