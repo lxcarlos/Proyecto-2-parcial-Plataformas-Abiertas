@@ -1,0 +1,170 @@
+/* limpiamos todo lo que los navegadores traen por default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* fondo casi negro con un toque azul muy oscuro, se ve menos plano que el negro puro */
+body {
+    background-color: #0d0d14;
+    color: #e8e8f0;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* header con un azul muy oscuro para que se distinga del fondo */
+header {
+    background-color: #13131f;
+    padding: 22px 28px;
+    text-align: center;
+    border-bottom: 2px solid #2a2a4a;
+}
+
+/* titulo con bastante espaciado entre letras, se ve elegante y moderno */
+header h2 {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    color: #c8c8e8;
+    text-transform: uppercase;
+}
+
+/* la caja del formulario centrada, con ese azul muy oscuro de fondo */
+.container {
+    width: 90%;
+    max-width: 420px;
+    margin: 80px auto;
+    background-color: #13131f;
+    padding: 52px 44px;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+}
+/************************************************************************************************/
+/* profe esto no nos lo enseño pero box-shadow le pone varias sombras al contenedor,
+   la primera es oscura y grande, la segunda es un borde brilloso azul muy sutil */
+.container {
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.7), 0px 0px 0px 1px rgba(100, 100, 200, 0.1);
+}
+
+/* inputs con fondo azul oscuro para que no se pierdan en el contenedor */
+.container input[type="text"],
+.container input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    background-color: #1e1e30;
+    border: 1px solid #3a3a60;
+    border-radius: 10px;
+    color: #e8e8f0;
+    font-size: 15px;
+    font-family: Georgia, serif;
+}
+
+/* cuando haces clic en el input el borde se ilumina con un morado suave */
+.container input[type="text"]:focus,
+.container input[type="password"]:focus {
+    outline: none;
+    border-color: #8888cc;
+}
+
+/* boton principal con un morado oscuro que combina con toda la paleta */
+.container button {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    background-color: #4a4a8a;
+    color: #e8e8f0;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* cuando pasas el mouse el boton se aclara un poco */
+.container button:hover {
+    background-color: #6060aa;
+}
+
+/* mensaje de error en un rojo-rosado que contrasta bien con el fondo oscuro */
+#error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 12px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* en pantallas pequeñas todo se ajusta */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 32px 22px;
+        margin: 40px auto;
+    }
+
+    header h2 {
+        font-size: 14px;
+        letter-spacing: 4px;
+    }
+}
+
+
+/********************************
+ modo claro
+ --------------------------------
+ el js agrega la clase "light" al body cuando el usuario
+ presiona el boton de toggleDark en perfil.html,
+ aqui todo cambia a tonos claros pero manteniendo el estilo
+********************************/
+
+body.light {
+    background-color: #f0f0f8;
+    color: #1a1a2e;
+}
+
+body.light header {
+    background-color: #e0e0f0;
+    border-bottom: 2px solid #b0b0d0;
+}
+
+body.light header h2 {
+    color: #3a3a6a;
+}
+
+body.light .container {
+    background-color: #ffffff;
+    border-color: #c0c0e0;
+    box-shadow: 0px 20px 60px rgba(100, 100, 200, 0.15), 0px 0px 0px 1px rgba(100, 100, 200, 0.2);
+}
+
+body.light .container input[type="text"],
+body.light .container input[type="password"] {
+    background-color: #f0f0fa;
+    color: #1a1a2e;
+    border-color: #b0b0d0;
+}
+
+body.light .container input[type="text"]:focus,
+body.light .container input[type="password"]:focus {
+    border-color: #4a4a8a;
+}
+
+body.light .container button {
+    background-color: #3a3a7a;
+    color: #ffffff;
+}
+
+body.light .container button:hover {
+    background-color: #5050a0;
+}
+
+body.light #error {
+    color: #cc2222;
+}
